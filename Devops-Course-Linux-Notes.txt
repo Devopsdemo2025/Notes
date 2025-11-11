@@ -1,0 +1,1301 @@
+touch filename --> Empty file --no need of extention(.txt etc) multiple file creation 
+
+1. How to create empty files using touch
+  touch filename
+  If you want to create multiple file then give space between the file names
+  touch file1 file2 file3 
+  
+  Directory creation
+  mkdir -p folder1   --> p stands for parent directory -->-p checkd folder exists or not --> if it does not exits then only
+  it will create - >-p used to surpass the error message
+  
+  mkdir it is used to create the directory and sub directory.
+  mkdir -p directoryname
+  -p is used to avoid the error message. If the directory does not exits then only it will create the directory. If directory already exists then 
+  -p will surpass the error message.
+  
+  mkdir -p folder/subfolder
+  
+  ls --> it is used to list all the files and directory
+  ls -l --> it will list the files in long list 
+  ls -lt --> recently created files dispalyed at the top(it will display based on time)
+  ls -lrt --> recently created files dispalyed at the bottom
+  l --> Stands for longlist
+  t --> Time
+  r --> reverse
+  ls -a --> Display hidden files
+  
+  How to edit the files
+  using vi editor
+  Once you type the content we can use below command to save and quit the file
+  press esc key :wq!  w write q quit ! force quit
+  :q! --> it will quit without saving
+  
+  pwd --> Display the current working directory
+  clear --> This is used to clear the screen
+  cd --> Change Directory --> one dir to another dir or path --- It is used to change or switch the directory(path)  --> syntax --> cd directoryname
+  cd .. --> Come outof 1 dir 
+  cd ../.. --> come out of 2 directory
+  esc :set nu --> Used to set line numbers
+  esc :set nonu --> It will remove line numbers 
+  esc/string --> It will search the string in a file, for next next the press n 
+  esc:1,4d  --> It will delete the line from 1 to 4
+  esc: 2d --> delete the 2nd line 
+  cat filename --> Used to display the content of a file 
+  tac filename --> it is used to dispaly the content of file in reverse order
+  
+  after ls -l
+  start with d --> Directory
+  start with -  --> file
+  start with l  --> link
+  
+  cat > t1.txt -->terminal becomes input mode — anything you type is sent into the file t1.txt
+  to come out we can press ctrl+D
+  
+  chmod -->change the permission for file or directory --> syntax --> chmod -R permission_value directoryname -- used to change permission for directory
+  chmod permission_mod filename --> used to change permission of a file --> chmod 764 filename --> rwx for user, rw for group, r for others
+  chmod  -R 651 directoryname --> rw for user , rx for group, r for others.
+  
+  both method can be used --> don't want to change existing permission the can go for u+w or u-x etc
+  if anything 
+  chmod- it is used to change the permission for a file or directory
+syntax: chmod -R permission_value directoryname      used to change permission for a directory
+
+chmod permission_value filename- used to change the permission of a file
+Ex: chmod 764 filename  
+764 represent rwx for user, rw for group, r for others
+
+Ex: chmod -R 651 dirname
+651 represent rw for user, rx for group, x for others
+
+rwx    rw-   r--  
+u       g     o
+
+dev
+	a b c
+
+test
+	m l
+
+
+person "a" creates a file  then a is user b,c is group and m,l is other 
+
+r-x r-- r--
+
+r-x rw- r--
+
+
+rx for user
+w for group
+x for others
+chmod u+rx,g+w,o+x
+
+r=4  w=2  x=1
+chmod 521 file4
+
+all for users    rw for group    r for others
+chmod 764
+
+chmod -R 764 dir1
+ 
+ 
+ ============================
+ 
+ ls /home/ubuntu/dir1  --> It will dispaly the files and directory from the path /home/ubuntu/dir1
+ home/ubuntu/dir1  it will check home in current path 
+ cp  it will copy a file or directory from one place to another place ---> cp sourcepath destination path 
+ ex :- cp /home/ubuntu/dir1/file1 /home/ubuntu/dir2  -> It will copy file1 from the path /home/ubuntu/dir1 to /home/ubuntu/dir2
+ cp -r /home/ubuntu/dir1/d1 /home/ubuntu/dir2  it will copy directory from /home/ubuntu/dir1/d1 to /home/ubuntu/dir2
+ 
+ mv --> moving file(/ at the end) and rename
+ 
+ mv --> It is used to rename a file or directory --> Syntax mv /home/ubuntu/dir1 /home/ubuntu/dir3
+ it will move the file or directory from 1 path to another path --> syntax  mv /home/ubuntu/dir1 /home/ubuntu/dir2/   dir1 is moved to the path /home/ubuntu/dir2
+ 
+ current drive --> where OS installed
+ df (disk free) it is used to check the size of the drives 
+ df -h . --> It will represent size of current drive(where OS installed) --memory utilisation for current drive 
+ df -h --> it will display size of all the drive
+ 
+ du --> disk usage --> it is used to dispaly the size of files and directory
+ du -sh *-->It will dispaly size of all the files and directory from current path
+ du -sh filename-->it will dispaly size of specific file
+ s stands for--> size
+ h stands for--> human readable format
+ du stands for disk usage
+ 
+ du -sm filename --> display size in MB
+ 
+ df --> how much memeory allocated to drive
+ du --> how much memeory allocated to file or directory (filesize)
+ (space given means it will consider another argument)
+ 
+ How do you check system memory (ram memeory)
+ free --> using free we can check system/RAM memory.
+ 
+ =======================================9th Oct 2025====================================
+ > -- redirect operator -- to copy o/p to another file
+ ls -l > output
+ if output is already exist it will overrider, otherwise it will creae new file 
+ 
+ Redirect(>) it is used to write o/p of one command to another file. If file exist it will override the content. If the file does not exist it will create a new file 
+ and add the content.
+ Ex :- ls -l > filename 
+       cat out > out1 
+	   
+Append (>>) --> it is used to append the o/p of a command at the end of a file 
+Ex:- cat out >> out1
+     ls -l >> out1
+	 
+wc(word count) --> It is used to count number of lines, words and characters in a file
+wc filename  --> Display lines, words, characters
+wc -l filename --> Display number of lines -->l stands for line
+wc -w filename --> Display number of words 
+wc -c filename --> Display number of characters
+
+head --> It is used to dispaly first n number of lines from the file 
+head filename --> it will dispaly top 10 lines by default
+head -22 filename --> It will dispaly first 22 lines from the file 
+head -3 filename --> It will dispaly first 3 lines from the file 
+
+tail --> It is used to dispaly last n number of lines from the file
+tail filename --> it will dispaly last 10 lines by default
+tail -5 filename --> It will dispaly last 5 lines from the file 
+tail -12 filename --> It will dispaly last 12
+ lines from the file 
+ 
+ nl filename  --> Display the content like cat command and also dispaly line number
+ 
+ | (pipe symbol)--> It is used to pass output of 1 command as an input to another command
+ Ex :- head -5 out2 |  tail -3 --> It will dispaly from line 3 to 5
+ head -9 filename | tail -8 --> It will dispaly from line  2 to 9
+ 
+ How to dispaly 6th line 
+ head -6 filename| tail -1
+ 
+
+ How to dispaly 14th line 
+ head -14 filename| tail -1
+ 
+ Assignment
+ Display different range of file lines
+
+lsblk 
+
+========================10-10-2025=============================================
+
+count the number of words in 14th line of a file and save to any file 
+--> head -14 file31 | tail -1 | wc -w > file40
+
+How do you check version of a linux
+--> lsb_release -a    -->ubuntu flavour version 
+
+hostname --> It is used to dispaly name of the server.
+
+How do you run the script or command at background --> using & symbol at the end of the command.
+ex :- ls & 
+
+date --> It will dispaly the system date and time
+
+date '+%D'  -->Displays the date in MM/DD/YY format. Example: 10/10/25
+date '+%A'  --> Shows the full weekday name. Example: Friday
+date '+%d'  --> Prints the day of the month (01–31). Example: 10
+date '+%a'  --> Displays the abbreviated weekday name. Example: Fri
+date '+%m'  -->Shows the month number (01–12). Example: 10
+date '+%M'  -->Prints the minute (00–59). Example: 42
+date '+%H'  -->Displays the hour in 24-hour format (00–23). Example: 08
+date '+%h'  ->Shows the abbreviated month name. Example: Oct
+date '+%S'  -->Prints the seconds (00–59). Example: 30
+date '+%T' -->Shows the current time in HH:MM:SS format. Example: 08:42:30
+
+whoami --> Username will dispaly 
+if the flavour is centOS then --> cat /etc/os-release --> Version of centOS flavour
+
+=========================================11-10-2025================================================================
+
+grep --> It is used to search the pattern from the file. If pattern is found it will dispaly the line which conatin a pattern from the file.
+syntax :- grep pattern filename
+Ex :- grep devops  filename --> It will display the line which conatins the pattern devops. It is case sensiive.
+syntax :- grep -i devops filename --> It is case insensitive it will ignore the cases while searching the pattern. 
+ 
+grep -i -w dev filename --> It will search for a specific word "dev". If file contain word dev then it will dispaly the line which contain dev.
+
+grep -e pattern1 -e pattern2 filename --> It will search for multiple pattern .It is also called as egrep
+
+how to display empty lines ?
+grep ^$ filename
+
+How do you count empty lines ?
+grep -c ^$ filename
+
+grep -l -r pattern * 
+l is used to list the files which conatin a pattern
+r is used to search in both current directory as well as sub directory upto nth level
+the above command is used to list all the files which conatin a pattern.
+
+grep -L -r pattern * --> It will dispaly all the files which does not conatin a pattern.
+
+grep ^pattern filename --> It will dispaly the line which start with the pattern
+grep pattern$ filename --> It will dispaly the line which ends specific pattern
+
+grep -v pattern filename --> It will dispaly all the lines which does not conatin a pattern.
+grep -n pattern filename --> It will dispaly the line which conatin pattern along with line number.
+
+grep -q "pattern" filename --> is used to quietly check if a specific pattern exists in a file
+If the pattern is found, grep exits with status code 0.
+If not found, it exits with status code 1.
+
+find the empty file in current directory and delete it
+sed -i '/^$/d' filename
+
+========================13-10-2025==================================================
+
+replace 
+delete line
+display range of lines
+
+sed(stream editor) --> It is used to perform the follwing functionalities
+1. It is used to replace the pattern from another pattern from the file
+2. It is also used to display the specific lines from the file
+3. To delete the specific line from the file
+1. 
+sed 's/ubuntu/linux/g' filename --> here it will replace pattern ubuntu by linux from the file but the changes will not be updated in the file it will dispaly on the screen.
+sed -i 's/ubuntu/linux/g' filename -->This will replace all occureece of pattern ubuntu by linux and save to the file.
+sed -i '6s/linux/windows/1' filename --> It will replace the 1st occurence of pattern linux by windows in 5th line of a file.
+sed -i '6,8s/linux/windows/1' filename -->It will replace the first occurence of pattern linux to windows from line 6 to 8
+sed -i '$s/linux/windows/' filename --> It will replace 'linux' with 'windows' on the last line
+
+sed -i '9s/Linux/windows/Ig' filename -->Here I represent case insensitive it will ignore the case. It will replace the pattern Linux by ubuntu in 8th line of a file.
+sed -i '9s/Linux/windows/3g' filename --> 3rd occurence onwards it will update for line 9.
+2.dispaly
+
+sed -n '2p' filename --> Display 2nd line.
+sed -n '2p;5p' filename --> Display 2nd and 5th line.
+sed -n '2,5p' filename --> Display line 2 to 5
+3. Delete
+sed -i '5d' filename --> -i is for save otherwise won't save -->It will delete the 5th line of a file.
+sed -i '8,10d' filename --> Delete from 8th to 10th line 
+sed -i '8d;10d' filename --> Delete line 8 and line 10.
+sed -i '/ec2/d' filename -->It will delete the line that conatin a word ec2
+sed -i '$d' filename --> delete the last line of a file
+sed -i '/^$/d' filename -->delete empty line from file
+
+
+assignment 
+sed -i 's/ubuntu//g' filename --> It is used to delete the word from the file.
+sed -i '6s/ubuntu//g' filename -->It removes every occurrence of the word ubuntu from line 6 of filename.
+sed -i '5,8s/ubuntu//g' filename -->It removes every occurrence of the word ubuntu between line 5 to 8th lines of filename.
+
+=========================14-10-2025=================================================================
+
+find --> It is used to search the path of the file.
+find . --> search from current path 
+find path   --> ex :- find /home/ubuntu/dir1  --> It will search a file from specified location
+/   --> It will search from root path.
+find . -name file1  --> It is case sensitive it will search the path of a file or directory with the name file1
+find . -name File1  -->
+find . -iname file1   -->It is case insensitive it will search the path of a file or directory with the name file1
+find by default recursive function , which will search the file all the sub directory upto nth level.
+
+find . -type f -iname file1 --> it will dispaly only the files with the name file1
+find . -type d -iname file1 -->it will dispaly only the directories with the name file1  
+
+find . -type f -mtime +90 -->It will display all the files which are modified 90 days ago.
+find . -type f -mtime -90 -->It will display all the files which are modified within 90 days.
+
+find . -type f -mmin +20 --> It will display all the file 20 min ago
+find . -type f -mmin -20 --> It will display all the files within 20 min.
+
+find . -type f -perm 764 --> It will display all the files which have permission 764 (all for u, rw for g,r for o)
+find . -type f ! -perm 764 --> It will display all the files which does not have permission 764 
+
+find . -type f -empty --> It will display empty file 
+find . -type f ! -empty -->It will display not empty file
+
+find . -type f -size +2k -->It will display file size more than 2kb
+find . -type f -size +2m
+
+find . -maxdepth 1 -type f -iname filename --> It will restrict the find command to search only in the current directory. 
+If the file exist in the current directory it will display path.
+-maxdepth 1 --> search in current directory
+-maxdepth 2 --> search in current directory and 1st level sub directories
+-maxdepth 3 --> search in current directory and 1st level sub directories and 2nd level sub directories
+
+find . -type f -mtime -90 ! -mtime -60 
+
+To dispaly the data column wise 
+cut command used to cut the field in columnwise 
+
+cut -d " "  -f2 filename --> It will dispaly 2nd column of a file, Here d stands for delimiter, f stands for field
+cut -d " "  -f1,3 filename --> It will dispaly 1st and 3rd column of a file.
+cut -d " "  -f1-3 filename --> It will dispaly from 1st to 3rd column
+
+cut drawback --> if we have improper data
+
+==========================15-10-2025==================================================
+
+awk command ==> it is used to cut the files both in columnwise and in rowwise
+awk -F " " '{print $4}' filename --> It is used to dispaly the 4th column of a file
+awk -F " " '{print $NF}' filename  --> It will print the last column of a file
+awk -F " " '{print $(NF-1)}' filename --> It is used to print the last but 1st column of a file.
+awk -F " " '{print $1,$3}' filename -->It will dispaly the 1st and 3rd coulmn of a file.
+
+there is no shortcut to find range of coulmn in awk
+
+awk -F " " '{print $0}' filename --> it is used to print the all the column of a file.
+awk -F " " 'NR==2 {print $3}' filename -->It will dispaly 3rd column from the line 2.
+awk -F " " 'NR>2 {print $3}' filenameit will dispaly 3rd column from line 3 onwards
+awk -F " " 'NR==1,NR==3 {print $3}' filename --> It was displaying column 3 from line 1 to line 3.
+awk -F " " 'NR==1||NR==3 {print $3}' filename --> It was displaying column line 1 and line 3
+
+assignment --> Print the line which containin a specific pattern using awk command.
+awk '/error/ { print }' log.txt
+
+ls *.txt --> it will display all the .txt file 
+
+ls -l 
+username groupname 
+root and ubuntu by default user --> ubuntu
+root and ec2-user by default user --> centOS
+
+chown(Change Ownership) -->It is used to change the ownership of a file or directory(username and groupname)
+chown username:groupname file (ex chown root:root file) --> It will change username and groupname for the file
+chown -R username:groupname directoryname -->(ex chown -R root:root file  )--> It will change ownership for directory
+chown username filename --> It will change username of a file
+chown :groupname filename --> It will change groupname of a file
+
+=================16-10-2025==================================================
+
+By default we have 2 user root and ubuntu 
+
+sudo --> It is used to execute the command with root permission.
+ex:- sudo chown username:groupname filename
+
+su --> (super user or switch user) --> It is used to switch to another user or root user 
+syntax:- su - username
+Ex:- su - sandeep     (Need to create sandeep user)  --> It will switch to sandeep user
+
+sudo su - -->It is used to switch root user.
+
+How do you check number of users in the server ?
+cat /etc/passwd | wc -l 
+
+adduser --> It is used to create a new user
+syntax--> adduser username
+Ex:- adduser sandeep
+
+passwd username --> It is used to set the password for the user.
+passwd -d username --> It is used to remove the password for the user.
+
+link :- link is a shortcut to a file 
+2 types of link 1. Softlink 2. Hardlink
+
+softlink :- It is a shortcut of a file if you make any changes in original file, it will be updated in link. If the original file is deleted then link will never work it is also called as symbolic link
+syntax :- ln -s filename linkname
+
+hardlink :- It is also a shortcut of a file. If original file is deleted then hardlink will work because it points to the inode of a file(memory address of a file)
+syntax --> ln filename linkname
+
+grep command multiple word in single pattern use --> "abc efg hij"
+
+how do you check process running on current user ?
+ps   
+
+How do you check all the process running in a beackground ?
+ps -ef    --> It will display all process running within a server
+
+How do you check wether specific process running or not ?
+ps -ef | grep -i processname
+
+How do you kill or stop the process?
+kill -9 processid
+
+ps -u username --> list the process started by specific user.
+
+rm --> it is used to delete file or directory
+rm filename --> Delete a file
+rm -rf directory --> It will delete directory, r stands for recursive, f stands for forcefully
+Once the file was deleted you will never get it back.
+
+================================17-10-2025====================================
+ find . -type f -mtime +90 | xargs rm -rf : 
+
+check the usage of .bashrc and .bashrc_profile files( assignment)
+bashrc --> Runs every time you open a new terminal window.
+Used for commands you want every terminal to have — like:
+Aliases (alias ll='ls -l')
+Colors in prompt
+
+.bash_profile (or .profile)
+Runs only once when you log in (like SSH or console login).
+Used for things that should happen only once, like:
+Setting PATH
+Starting background processes
+
+umask: It is used to set the default permission for file and directory. 
+Linux starts with default permissions
+Files → 666 (read & write for everyone)
+Directories → 777 (read, write & execute for everyone)
+666-022 --> 644 rw-r--r--
+666-044 --> 622 rw-r--r--
+for file we can set read write for everyone. Default permission value is 666
+for directory default permission value is 777
+by default execute permission is not given to files for security reasons
+to set the read write for user, ' r' for group and read for others the value is
+rw=6 for user
+r=4 for group
+r=4 for others
+so the value is 644. Since we are setting for the file consider 666-644=022
+umask 022
+
+how do you check which process was taking more CPU usage
+ans : top
+
+
+1.	create two instance call server -1 and server 2 
+2  Login to server 1 and switch to root or ubuntu(both server established connection as root & root or ubuntu & ubuntu)
+3 In server 1 generate ssh-keygen(press 3 times. generated keys
+4) cd .ssh/  directory  and cat the public key. U will get the public keys
+5) go to server 2 
+6) get inside the .ssh directory
+7) go to autorized_key file . copy and paste the key and save exit
+8) copy the public key from server 1 and paste into sever 2 under authorized key file and seave and exit
+9) go to server 1 .ssh userranme@hostname
+
+ubuntu@ip-172-31-2-161:~/.ssh$ history
+    1  ssh-keygen
+    2  ll
+    3  cd .ssh/
+    4  ll
+    5  cat id_ed25519.pub 
+    6  ssh ubuntu@172.31.5.43
+    7  cat id_ed25519.pub 
+    8  ssh ubuntu@172.31.5.43
+    9  clear
+   10  history
+ubuntu@ip-172-31-2-161:~/.ssh$ 
+
+ubuntu@ip-172-31-5-43:~/.ssh$ history
+    1  ll
+    2  cd .ssh/
+    3  ls
+    4* 
+    5  vi authorized_keys 
+    6  clear
+    7  history
+ubuntu@ip-172-31-5-43:~/.ssh$ 
+==========================22-10-2025=====================================
+65535
+16 bits 
+2^16 -1 ==> 0 to 65535
+
+command is used to remote server how many ports are open
+how many ports are open in current machine-- netstat
+netstat --help
+
+sudo apt update --> before install any package run this command
+sudo apt install net-tools 
+man netstat (manual)
+-  Explains what netstat does — it displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
+netstat -ntlpu --> is used to display detailed information about network connections and listening ports on a Linux system
+-n -->Show numerical addresses (skip DNS lookup)
+-t --> Show TCP connections
+-i -->Show only listening sockets
+-p -->Show the PID and name of the program
+-t -->Show UDP connections
+
+specific port is open or not in current server
+sudo netstat -tuln | grep :PORT
+
+
+TCP UDP 
+open ports on machine -> netstat -ntlpu
+netstat -n 
+netstat -nl-->The command netstat -nl is used to display listening network ports in Linux, showing them in numeric format without resolving hostnames or service names.
+
+netstat -nlp -->The command netstat -nlp is used to display listening network ports along with the processes that own them.
+netstat -nlptu --> all the listeing ports
+
+netstat is used to list all the listeing or open ports on the current server 
+netstat -t  -->tcp
+netstat -u  -->udp
+netstat -lt --> listeing
+sudo netstat -ntlpu
+perticulr port open or not --> 
+
+how do you check perticulr port is listeing or open or not 
+netstat -ntlpu | grep -22	
+
+-ntlpu --> n is display the port number, t --> tcp ports, u --> udp ports , l --> listening, p --> processid
+
+telnet -->It is used to check if the remote server port is Listening/open or not
+telnet remoteserveripaddress portnumber
+
+telnet publicipaddressofotherserver 22 
+
+how to check currently listening or not--> 
+
+
+==========================23-10-2025=========================================================================
+uptime --> It is used to check from how long the current server was up and running. It will also display the load average for th past 1min,5min.15 min . Here 0 represent no load and 1 represent full load.
+ssh user@remote-host 'uptime' --> It is used to check from how long the remote server was up and running.
+
+How do you check remote server was up and running(used to check connectivity of server) --> Using ping  -->(ping servername or DNS name)
+Example :- ping www.google.com
+(example at last it will show 1.14 ms --> time taken to  connect currentserver to remote server)
+
+How do you login to remote server --> ssh userranme@severname
+
+scp -> It is used to copy file or directory from 1 server to another server
+syntax --> scp filename userranme@severname:path
+if you wan to copy directory use -R 
+example --> scp file1 ubuntu@server:/home/ubuntu
+scp -r directoryname ubuntu@server:/home/ubuntu
+
+cp is used to copy the command within the server -- 
+scp used copy the command from 1 server to another server.(for scp its mandatory to do passwordless connection) 
+
+Examples ->scp -r dir7 ubuntu@ip-172-31-5-43:/home/ubuntu/  --> copy dir from server1 to server2 from server1
+scp -r ubuntu@ip-172-31-2-161:/home/ubuntu/dir1 /home/ubuntu
+
+==========================24-10-2025=====================================
+
+lsof --> It is used to list all opened files 
+syntax --> lsof 
+
+How do you list all the files used by specific process?
+lsof -p PID 
+
+list the files which was opened by specific user
+lsof -i -u username
+
+who --> It will list all the users exist in the server --> who are currently logged into the system.
+
+whereis --> It is used to list the binary files or source files for the command.
+syntax --> whereis commandname
+ex:- whereis cp
+
+xargs --> It is used to pass the arguments as a input to the next command in a single line.
+It will pass each value of output as a sequence as an input to the next command.
+find . -type f -mtime +30 | xargs rm
+output --> rm file1 file2 file3
+
+It will pass each value of output line by line as an input to the next command
+find . -type f -mtime +30 -exec rm "{}"
+Output
+rm file1
+rm file2
+rm file3
+
+lsblk(list block device) --> It shows all the block stortage devices which is connected to the server.It will display disk, partitians and volumes
+
+rsync ->It is used to copy file or directory from 1 server to another server
+
+difference between scp and rsync
+while copying data from one server to another server , If copying stopped in between  due to some network issue. Once system is back if I used scp command it start copying from beginning.
+If I used rsync command it will start copying from wher it is stopped.
+
+port number 
+telnet - 23 
+http - 80
+https -443
+DNS - 53
+ssh -22
+scp -22
+
+Kill and Stop which one is preffered?
+If you're trying to end a process, kill is preferred. If you're trying to pause it, kill -STOP is your tool.
+
+Last but one row and last but one column of file
+=============================27-10-2025================================
+wget --> it is used to download a file 
+syntax :- wget url
+
+curl --> it is used to download the file , It is used to fetch the data from the url and also used to upload a file to the URL
+syntax --> To fetch data --> curl url 
+example --> curl www.google.com
+
+To upload a file 
+curl -T filename url --> Here filename is uploaded to the specific url 
+
+To download a file
+curl -o filename url --> the file is downloaded from the URL and saved with the name filename.
+
+tar --> It is used to creat a compressed archive file (.tar.gz) from the specified files or directory.
+tar -cvf filename.tar.gz directory --> Here directory was compressed to the file filename.tar.gz
+c --> create to archive file
+v -->verbose mode --> It will show the files being processed
+f --> display filename of the archive
+
+To unzip/untar the tar file
+tar -xvf filename.tar.gz --> It is used to extract the tar file
+x--> extract
+
+package manager for ubuntu is apt 
+package manager for centOS is yum
+
+intsall tree
+tree
+
+multiple echo statement 
+practice related to print statement.
+
+how to check java version
+====================================================================================
+Variable :- Name which is define the memory location to store some value
+
+write a program to read the values and display
+
+#!/bin/bash
+var="Hello"
+num=5
+echo "The string value is $var"
+echo "The integer value is $num"
+
+
+#!/bin/bash
+echo "Enter the integer value"
+read num
+echo "The value of num is $num"
+
+write a shell script for addition of 2 numbers
+
+#!/bin/bash
+echo "Enter the first number"
+read num1
+echo "Enter the second number"
+read num2
+sum=num1+num2
+sum=`expr $num1 + $num2`
+echo "Addition value is $sum"
+mul=`expr $num1 \* $num2`
+echo "multiplication value is $mul"
+
+`` --> used for passing the output
+
+assignment
+modulus , substarction , division
+
+====================================29-10-2025===========================================
+#! (shebang) -->which interpreter to use to execute the script. (Bash/Shell/Python)
+
+
+command line arguments in bash as shell argument. 
+$0 conatin name of the file or script, 
+first argument will be store in $1, 
+second argument stored in $2 and so on
+
+How do you pass arguments to the shell script through commands ?
+while executing the script we will pass arguments by saparating with spaces and inside the script we will read it by $1,$2,....
+
+$# --> It will dispaly total number of arguments pass to the script
+$* --> All argument passed as string
+$@ --> All argument passed in array format
+$$ --> ProcessId of current running process
+$! --> ProcessId of last command went into background
+$? --> It is used to print the status of last executed command it dispaly 0 if the previous command is successful. Otherwise it will
+dispaly non 0 value means failure of previous command.
+
+#!/bin/bash
+num=10
+echo "the value is $num"
+echo $0
+echo $0 | awk -F "/" '{print $NF}'
+echo $1 $2 $#
+
+If Statement:
+if[condition]
+then
+	statement
+fi 
+
+If else statement
+if [condition]
+then	
+	statement1
+	else
+	Statement2
+fi
+
+Nested If Statement:
+if [condition]
+then	
+	statement1
+elif[condition1] 
+then
+	statement2
+elif[condition2]
+then
+	statement3
+.
+.
+.
+else 
+	statement4
+	
+Strings  	integer  	Description
+==			-eq			Equal
+!= 			-ne			Not Equal
+>			-gt			Greater than
+>= 			-ge			Greater than or equal
+<			-lt			less than 
+<=			-le			less than or equal to
+
+
+How to check perticular process if taking more CPU or not
+top | grep PID
+=============================30-10-2025=============================
+write a program to check wether the number is 5 or not
+echo "Enter the input value"
+read num
+if [$num -eq 5]
+then
+echo "equal"
+else
+echo "not equal"
+fi
+
+Write a program to find biggest of 2 number, read values from command line, If user did not pass the 
+2 argument then display the approriate message.
+
+if [$# -ne 2]
+then
+echo "Pass 2 args"
+exit 1
+fi 
+if [$1 -gt $2]
+then
+echo "$1 is greater than $2"
+else
+echo "$2 is greater than $1"
+fi
+
+WAP to check wether the given path is a file or directory or link, if the path does not exist
+then display it does not exist
+
+echo "enter the path to check"
+read name
+if [-f $name]
+then
+echo "$name is a file"
+elif [-d $name]
+then
+echo "$name is a directory"
+elif [-L $name]
+then
+echo "$name is a link"
+else
+echo "$name does not exist"
+fi
+
+Go with link first
+
+Assignment
+write a programto check biggest of 3 numbers
+
+if [ $# -ne 3 ]
+then
+echo "Please enter only 3 numbers"
+exit 1
+fi
+
+if [ $1 -ge $2 ] && [ $1 -ge $3 ]
+then
+echo "$1 is greater than $2 and $3"
+elif [ $2 -ge $3 ] && [ $2 -ge $1 ]
+then
+echo "$2 is greater than $1 and $3"
+else
+echo "$3 is greater than $1 and $2"
+fi
+~         
+
+Given number is odd or even
+
+echo "Please enter one number"
+read num1
+
+if [ $((num1 % 2)) -eq 0 ]
+then
+echo "Entered number is even"
+else
+echo "Entered number is odd"
+fi
+~ 
+
+Given number is prime or not
+
+echo "Please enter one number"
+read num
+if [ $num -eq 1 ]
+then
+echo "$num is not prime"
+exit 1
+fi
+
+if [ $num -eq 2 -o $num -eq 3 ]
+then
+echo "$num is prime"
+exit 0
+fi
+
+if [ "$(factor "$num" | wc -w)" -eq 2 ]
+then
+echo "$num is prime"
+else
+echo "$num is not prime"
+fi
+~        
+
+=======================11-1-2025===================================================
+
+Looping Statement :- When ever we need to execute statements repeatedly go with looping.
+
+while loop :- 
+syntax 
+
+	while [ condition ]
+	do
+	statements 
+	done 
+ --do and done between is body of loop
+ Here statement within the body of while will be executed  only when condition is true. Once the condition becomes false the loop terminates. or loop exit
+ 
+ `` --> back quote --> It is used to copy output of command or output of expression to the variable.
+ write script to find the sum of first n number?
+ 
+ #!/bin/bash
+ echo "Enter the value of n"
+ read name
+ sum=0
+ while [$n -gt 0]
+ do
+ sum = `expr $sum + $n`
+ n= `expr $n - 1`
+ done 
+ echo "The result is: $sum"
+=========================================================================
+Assignment :- write a program of factorial of given number.
+#!/bin/bash
+
+echo "Enter the number to calculate factorial"
+read f
+mul=1
+while [ $f -gt 0 ]
+do
+mul=`expr $mul \* $f`
+f=`expr $f - 1`
+done
+echo "factorial of a number is $mul"
+==========================================================================
+ 
+ while read : it is used to read the content of a file line by line 
+ syntax :
+ while read line 
+ do 
+ statements
+ done < $filename
+ 
+ line is variable here 
+ ==========================================================================
+ write a program to count the number of characters from each line of file.
+ 
+ echo "Enter the file name to count"
+ read filename 
+ i=1
+ while read line
+ do 
+ count=`echo $line | wc -c`
+ echo "The number of characters in line $i is $count"
+ i=`expr $i + 1`
+ done < filename
+ 
+ 
+=========================================================
+ Assignment:- write a script to count a number of words in each line of a file , take i value as 0 first while initialising
+ 
+ #!/bin/bash
+
+echo "Please enter the filename"
+read filename
+n=0
+while read word
+do
+wordcount=`echo $word | wc -w`
+n=`expr $n + 1`
+echo "Number of words in line $n is $wordcount"
+done < $filename
+=============================================================
+Fibonacci series
+ 
+ #!/bin/bash
+
+echo "Please enter the number of terms in the Fibonacci series:"
+read fib
+
+a=0
+b=1
+
+echo "$a, $b"
+
+for (( i=2; i<fib; i++ ))
+do
+    c=$((a + b))
+    echo ", $c"
+    a=$b
+    b=$c
+done
+echo
+=================================================================
+#Program to check even or not, if odd number should be divisible by 3
+
+#! /bin/bash
+
+
+echo "Enter the number $num"
+read num
+
+if [ $(($num % 2)) -eq 0 ]
+then
+        echo "$num is a even number"
+else
+        echo "$num is odd"
+
+        if [ $(($num / 3)) -eq 0 ]
+        then
+                echo "$num is odd number"
+
+        else
+                echo "$num is divisible by 3"
+        fi
+fi
+
+==========================================================
+write a script to get the table of 10
+#!/bin/bash
+
+echo "Enter the number "
+read table
+i=1
+while [ $i -le 10 ]
+do
+        result=expr $table \* $i
+        i=expr $i + 1
+        echo "the result is \n $result"
+done
+========================================================
+Write a shell script to find the sum of n number and each time it has to ask enter number 1, enter number 2 and so on 
+
+#!/bin/bash
+echo "enter the number you want to add"
+read n
+i=1
+while [ $i -le $n ]
+do
+echo "enter number $i"
+read num
+sum=expr $sum + $num
+i=expr $i + 1
+done
+echo "sum of $n numbers is $sum"
+=========================================================
+Write a program to check whether a specific file exists inside the directory
+
+#!/bin/bash
+
+echo "enter the path of directory"
+read directory
+
+echo "Enter the filename you want to search"
+read file
+
+if [ -f "$directory/$file" ]
+then
+echo "Files exist inside $path"
+else
+echo "No files found inside $path"
+fi
+=========================================
+WAP to revers the string and check the string is palindrome or not using while and with out using "rev" command
+
+===============3-11-2025========================
+EmpId  EmpName      EmpSalary  EmpDomain        Age
+101    Priya Nair   ₹85,000    Data Science     29
+102    Arjun Mehta  ₹72,500    Web Development  55
+103    Sneha Rao    ₹95,000    Cybersecurity    65
+104    Rohan Das    ₹68,000    DevOps           78
+105    Kavya Jain   ₹78,500    Cloud Computing  82
+106    Aman Verma   ₹90,000    AI/ML            34
+107    Neha Singh   ₹65,000    UI/UX Design     26
+108    Vikram Roy   ₹88,000    Blockchain       20
+
+write a script to display employeeName if the age greater than 60
+#!/bin/bash
+set -x
+echo "enter the filename"
+read filename
+i=1
+while read line
+do
+  if [ $i -gt 1 ]
+  then
+    age=`echo $line | awk -F " " '{print $NF}'`
+    if [ $age -gt 60 ]
+    then
+      echo $line | awk -F " " '{print $1}'
+    fi
+  fi
+  i=`expr $i + 1`
+done < $filename
+
+How do you debug the shellscript
+using -->set -x
+
+write a script to display the filename if they have pattern
+#!/bin/bash
+
+echo "enter the pattern to search in a file"
+read pat
+
+grep -l -r "$pat" * > outpat
+if [ $? -eq 0 ]
+then
+    echo "Searched Pattern found in below files"
+    cat outpat
+else
+    echo "$pat is not found in any of the files"
+fi
+===========================11-04-2025=====================================
+for loop 
+
+num="2 4 5"
+
+syntax
+for variable in $num
+do
+statements
+done
+
+write a program to find factorial for the set of values.
+
+#!/bin/bash
+num="2 4 5"
+
+for n in $num
+do
+  fact=1
+  temp=$n
+  while [ $n -gt 0 ]
+  do
+    fact=`expr $n \* $fact`
+    n=`expr $n - 1`
+  done
+  echo "The factorial of $temp is $fact"
+done
+
+write a program to find sum of all the elements in an array
+#!/bin/bash
+
+num="2 8 9 6 5"
+
+sum=0
+
+for i in $num
+do
+sum=expr $sum + $i
+done
+
+echo "The sum of all the elements in array is $sum"
+
+write a program to rename all text file into html file
+
+
+#!/bin/bash
+
+ls *.txt > out
+
+while read line
+do
+        name=echo $line | awk -F "." '{print $1}'
+        mv $name.txt $name.html
+
+done < out
+
+ls *.html
+========================11-05-2025================================
+Assignment 
+1. mail generation using given link
+2. Have to keep only recent created files and delete the remaining files
+
+1. Write a script to monitor the memory usage. If the memory reaches threshold value then send a mail notification to the concerned user.
+Script:
+#!/bin/bash
+usage=`df -h . | awk -F " " 'NR > 1 {print $(NF-1)}' | sed  's/%//g'`
+if [ $usage -lt 70 ]
+then
+        #mail -s "memory usage reached threshold value" -c sandeepvarambally@gmail.com
+        echo "Memroy usage reached thershold $usage"
+fi
+
+2. Write a script to monitor the some of the services running on the server. If any of the services stopped, then script should send a mail notification to the concerned user.
+Script: 
+#!/bin/bash
+#set -x
+checkprocess=" sshd jenkins "
+for i in $checkprocess
+do
+        ps -C $i
+        if [ $? -ne 0 ]
+        then
+                echo "Service $i not running"
+        fi
+done
+Assignment 
+Write a script to clean up the old builds.
+ps -C - Command is used to check if a specific process is running or not 
+Syntax - ps -C processname
+
+===========================11-06-2025==================================
+Write a script to delete/cleanup old files:
+#!/bin/bash
+ls -lrt | awk -F " " 'NR>1 {print $NF}' > output
+total=cat output | wc -l
+echo "enter the number of values to retain"
+read count
+value=expr $total - $count
+head -$value output | xargs rm -rf
+
+------------------------------------------------------
+* * * * * /home/ubuntu/file1.sh
+1* - represent the minutes(0-59)
+ex: 05(5 mins)
+
+*/10 : It will execute for every 10 mins
+
+2* - represents hours (1-23)
+3* - represents date (1-31)
+4* - represents month (1-12)
+5* - represents day(Sunday-00, Monday-01, tuesday-02....)
+
+Ex: I need to schedule a script on 7th november at 10.25 PM 
+    25 22 07 11 * /home/ubuntu/filename.sh
+
+    I need to run a script for every 20 mins on monday and thursday
+    */20 * * * 01,04 /home/ubuntu/filename.sh
+
+    I need to run a script for every 20 mins on Monday to thursday
+    */20 * * * 01-04 /home/ubuntu/filename.sh
+
+crontab : It is a scheduler which is used to schedule a scripts in Linux.
+crontab -e : It is used to schedule the scripts in cronjob file.
+crontab -l : It is used to list the scheduled scripts in crontab.
+
+Assignment
+
+schedule the script for monitor and disk usage , need to check getting mail notofication or not.
+
+crontab :- It is a scheduler which is used to schedule the script in Linux.
+crontab -e :- It is used to schedule the script in cronjob file
+crontab -l :- It is used to list the scheduled scripts in crontab
+--------------------
+Is to test mail is working or not 
+sudo systemctl restart postfix
+  927  postconf mail_version
+  928  systemctl status postfix
+  929  which s-nail
+  930  which mailx
+  931  s-nail -v
+  932  mailx -V
+  933  echo "Test body" | mail -s "Test subject" sandeepvarambally@gmail.com
+============================11-7-2025===========================  
+  
+  write a script to the following task
+  a. Monday create a temporary files within path /temp
+  b. List all the files which are older than 30 days
+  c. Wednsday copy all the old files to the temporary directory
+  d. Thursday Clean up all the old files
+  e. Friday cretae a new user for newly joined employee.
+  f. Saturday and Sunday print its holiday.
+  
+syntax :-
+	synt: case variable in 
+		'val1') statement
+		       ;;
+		'val2') sataement2
+				;;
+		'val3') statement3
+				;;
+		*) statement
+		esac
+		
+		If value is a integer
+		
+		synt: case variable in 
+		val1) statement
+		       ;;
+		val2) sataement2
+				;;
+		val3) statement3
+				;;
+		*) statement
+		esac
+  
+  
+#!/bin/bash
+day=date "+%a"
+case $day in
+        'Mon') mkdir -p /home/ubuntu/tmp
+                ;;
+        'Tue') find /home/ubuntu -type f -mtime +30 > filelist
+                ;;
+        'Wed') cat filelist
+                ;;
+        'Thu') ls -ltr /home/ubuntu
+                ;;
+        'Fri') sudo adduser manasa
+                ;;
+        'Sat' | 'Sun') echo "It's holiday"
+esac
+
+#!/bin/bash
+#  a. Monday create a temporary files within path /temp
+#  b. List all the files which are older than 30 days
+#  c. Wednsday copy all the old files to the temporary directory
+#  d. Thursday Clean up all the old files
+#  e. Friday cretae a new user for newly joined employee.
+#  f. Saturday and Sunday print its holiday.
+day=`date '+%a'`
+case $day in
+        'Mon')  mkdir -p /home/buntu/tmp
+                cd /home/buntu/tmp
+                touch /home/ubuntu/tmp/file10.txt /home/ubuntu/tmp/file20.txt /home/ubuntu/tmp/file30.txt
+                ;;
+        'Tue') find . -type f -mtime +30 > /home/ubuntu/tmp/olderfiles
+                ;;
+        'Wed')  mkdir -p /home/ubuntu/tmp/backupoldefiles
+                xargs -a /home/ubuntu/tmp/olderfiles cp -t /home/ubuntu/tmp/backupoldfiles
+                ;;
+        'Thu') xargs -a /home/ubuntu/tmp/olderfiles rm
+                ;;
+        'Fri') sudo useradd deepu && echo "user deepu is created"
+                ;;
+        'Sat' | 'Sun') echo "it's holiday"
+esac 
+
+ 
+ How to give admin access for the user 
+ 
+ vi /etc/sudoers
+ add at the end  --> username ALL=(ALL:ALL) ALL
+ to check access got or not --> groups username --> it will give sudo along with username 
+ 
+ touch /home/ubuntu/tmp/file10.txt /home/ubuntu/tmp/file20.txt /home/ubuntu/tmp/file30.txt
+ 
+ 
+ 
+Personal Access Token Git --> FirstToken--> 
+
+Which script written in shell.
+Write a script to delete/cleanup old builds:
+CPU usage more than 70% mail trigger
+Memroy usage more than 80% mail trigger

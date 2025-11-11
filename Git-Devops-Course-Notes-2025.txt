@@ -1,0 +1,72 @@
+Version Control Tool
+Version Control Tool is a tool which is used to keep track of projects related files and directories
+
+2 types of version control tool
+1. Distributed version control tool
+2. Centralised version control tool
+
+Difference between distributed and Centralised version control tool (GIT vs SVN or CVS)
+Git is a distributed version control tool. The whole repo will be in local repo if I want to go to the previous version of a code I can get from local workspace itself.
+SVN is a centralised version control tool. Only the latest version of code will be there in local workspce
+If I required previous version of code then I need to checkout from central repo.
+
+Git has many advance features like reset, fetch, stash
+Incase of SVN we dont have direct commands for all these 
+
+example for distributed version control tool is Git, bitbucket, Gitlab
+example for centralised version control tool is svn and cvs
+
+GIT :- Git is a version control tool which is used to keep track of project related files and directories.
+
+Git Architecture :-
+it consist of 3 stages 
+1. Workspace  :- It is a place where we edit projects related files.
+2. Stagging area :- It is an intermediate area where we save the changes 
+3. Git repo or git local repo :- Here versions of files will be tracked. After executing git commit command
+files will be moved to local repo 
+
+git init :- used to create or initialize git repo 
+syntx :- git init
+git cred
+Devopsdemo2025
+$@ndeep@2025
+
+Assignment 10-11-2025
+
+Create account in Github
+Create a repository
+Delete repository
+Create personal access token (settings- Developer settings - Personal Access Token --> Tokens(Classsic)
+--> Generate New Token --> Generate New Token(Classsic)-->Enter Token Name 
+--> set expiration to No Expiration -> select all scops -->Click on Generate Token)
+
+Git Personal access tokens (classic) --> 
+
+
+Git clone --> It is used to copy central repo or remote repo to the local workspace for the firsttime
+syntax :- git clone url
+
+git config --globle user.name "mention name"
+It is used to configure the username 
+
+
+git config --globle user.email "mention mailId"
+It is used to configure the mailid of user
+
+git status --> It is used to check wether the files are in workspace or staging area or local repo 
+syntax :- git status
+
+git add--> It is used to move the files from workspace to the staging area 
+syntax --> git add filename --> It will move specific file to the staging area.
+
+git add . --> It will move all the modified files to the staging area
+
+git commit  --> It is use to move the files from staging area to the local git repo. It is used to save or commit the changes to the local repo.
+syntax :- git commit -m "commit message"
+
+git log --> It is used to check the history of the repo
+git log -3 --> It will display history of the last 3 commit
+git log filename -->It will display history of files (commits of that file)
+
+assignment 
+create repo and push all shellscript
