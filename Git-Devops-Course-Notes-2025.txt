@@ -68,5 +68,36 @@ git log --> It is used to check the history of the repo
 git log -3 --> It will display history of the last 3 commit
 git log filename -->It will display history of files (commits of that file)
 
-assignment 
-create repo and push all shellscript
+
+
+assignment
+
+================================12-11-2025===================================
+branch --> Branch is used for parlell devlopment. If 2 people or 2 team will work on the same piece of code then we will create a branch and integrate the changes by merging.
+
+git branch --> It is used to display all branches (Active branch)
+syntax --> git branch
+git branch -a --> It is used to display all branches (bothy Active and inactive branch)
+
+git checkout branchname --> It is used to switch to another branch
+ex :- git checkout dev
+
+git branch branchname --> It will create a new branch from checkout branch
+
+git checkout -b branchname --> It will create a new branch and switch to newly created branch automatically
+
+git branch -d branchname --> It is used to delete the branch in local repo
+
+git push origin --delete branchname --> It is used to delete the branch in central repo 
+
+git push --> It is used to copy the changes from local repo to the central repo.
+Syntax :- git push origin master  --> It will push the changes to master branch
+
+git push origin --all --> It will push the changes from more than 1 branch of local repo to the respective branch in central repo.
+
+git merge --> It is used to merge the changes from 1 branch to another branch
+syntax :- git merge branchname
+Ex:- I need to merge the changes from dev1 to main branch
+	step 1 :- Make changes in dev1 branh
+	step 2 :- switch to main branch --> git checkout main
+	step 3 :- merge the changes from dev1 --> git merge dev1
